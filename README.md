@@ -1,4 +1,4 @@
-The index-with-bug.html file links to the GSAP animation defined in animation-with-bug.js
+The [index-with-bug.html](https://mvpspl619.github.io/cr63-rendering-bug/index-with-bug.html) file links to the GSAP animation defined in animation-with-bug.js
 
 We believe that the issue lies in the function `rotationRevealTl`:
 
@@ -28,7 +28,7 @@ return tlCircle;
 
 Notice the `Power2.easeIn`. 
 
-The index-fixed.html file links to the animation defined in animation-fixed.js
+The [index.html](https://mvpspl619.github.io/cr63-rendering-bug/index.html) file links to the animation defined in animation-fixed.js
 
 The only change to this function is we replaced `Power2.easeIn` with `Linear.easeNone`. 
 

@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link href="https://fonts.googleapis.com/css?family=Overpass:100,300,400,700" rel="stylesheet">
+  <title>SPR Consulting &#8211; SPR Consulting</title>
+  <meta name='robots' content='noindex,follow' />
+  <link rel='dns-prefetch' href='//s.w.org' />
+  <link rel="alternate" type="application/rss+xml" title="SPR Consulting &raquo; Feed" href="http://spr.local/feed/" />
+  <link rel="alternate" type="application/rss+xml" title="SPR Consulting &raquo; Comments Feed" href="http://spr.local/comments/feed/"
+  />
+  <script type="text/javascript">
+    window._wpemojiSettings = { "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/", "ext": ".png", "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/", "svgExt": ".svg", "source": { "concatemoji": "http:\/\/spr.local\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.8.2" } };
+    !function (a, b, c) { function d(a) { var b, c, d, e, f = String.fromCharCode; if (!k || !k.fillText) return !1; switch (k.clearRect(0, 0, j.width, j.height), k.textBaseline = "top", k.font = "600 32px Arial", a) { case "flag": return k.fillText(f(55356, 56826, 55356, 56819), 0, 0), b = j.toDataURL(), k.clearRect(0, 0, j.width, j.height), k.fillText(f(55356, 56826, 8203, 55356, 56819), 0, 0), c = j.toDataURL(), b !== c && (k.clearRect(0, 0, j.width, j.height), k.fillText(f(55356, 57332, 56128, 56423, 56128, 56418, 56128, 56421, 56128, 56430, 56128, 56423, 56128, 56447), 0, 0), b = j.toDataURL(), k.clearRect(0, 0, j.width, j.height), k.fillText(f(55356, 57332, 8203, 56128, 56423, 8203, 56128, 56418, 8203, 56128, 56421, 8203, 56128, 56430, 8203, 56128, 56423, 8203, 56128, 56447), 0, 0), c = j.toDataURL(), b !== c); case "emoji4": return k.fillText(f(55358, 56794, 8205, 9794, 65039), 0, 0), d = j.toDataURL(), k.clearRect(0, 0, j.width, j.height), k.fillText(f(55358, 56794, 8203, 9794, 65039), 0, 0), e = j.toDataURL(), d !== e }return !1 } function e(a) { var c = b.createElement("script"); c.src = a, c.defer = c.type = "text/javascript", b.getElementsByTagName("head")[0].appendChild(c) } var f, g, h, i, j = b.createElement("canvas"), k = j.getContext && j.getContext("2d"); for (i = Array("flag", "emoji4"), c.supports = { everything: !0, everythingExceptFlag: !0 }, h = 0; h < i.length; h++)c.supports[i[h]] = d(i[h]), c.supports.everything = c.supports.everything && c.supports[i[h]], "flag" !== i[h] && (c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && c.supports[i[h]]); c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && !c.supports.flag, c.DOMReady = !1, c.readyCallback = function () { c.DOMReady = !0 }, c.supports.everything || (g = function () { c.readyCallback() }, b.addEventListener ? (b.addEventListener("DOMContentLoaded", g, !1), a.addEventListener("load", g, !1)) : (a.attachEvent("onload", g), b.attachEvent("onreadystatechange", function () { "complete" === b.readyState && c.readyCallback() })), f = c.source || {}, f.concatemoji ? e(f.concatemoji) : f.wpemoji && f.twemoji && (e(f.twemoji), e(f.wpemoji))) }(window, document, window._wpemojiSettings);
+  </script>
+  <style type="text/css">
+    img.wp-smiley,
+    img.emoji {
+      display: inline !important;
+      border: none !important;
+      box-shadow: none !important;
+      height: 1em !important;
+      width: 1em !important;
+      margin: 0 .07em !important;
+      vertical-align: -0.1em !important;
+      background: none !important;
+      padding: 0 !important;
+    }
+  </style>
+  <link rel='stylesheet' id='spr-css' href='./style.css' type='text/css'
+    media='' />
+  
+  <style type='text/css'>
+    img.lazy {
+      display: none;
+    }
+  </style>
+
+  <style>
+    .animation-canvas {
+      height: 100vh;
+      position: relative;
+      overflow: hidden
+    }
+
+    .content-slides,
+    .content-slides [class*=slide-] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center
+    }
+
+    [class*=arrow-swipe-] {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+      transform: translateX(-100%)
+    }
+
+    [class*=arrow-swipe-]>div {
+      width: 30vh;
+      height: 50%;
+      background: #0198ff;
+      position: absolute;
+      right: 0
+    }
+
+    .arrow-swipe-1>div {
+      height: 49%
+    }
+
+    .arrow-swipe-2:before,
+    .bg-rotate-reveal {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      position: absolute
+    }
+
+    [class*=arrow-swipe-]>div.top {
+      -webkit-transform: skewX(25deg);
+      -ms-transform: skewX(25deg);
+      transform: skewX(25deg);
+      top: 0;
+      -webkit-transform-origin: right bottom;
+      -ms-transform-origin: right bottom;
+      transform-origin: right bottom
+    }
+
+    @media screen and (min-width:769px) {
+      [class*=arrow-swipe-]>div.top {
+        -webkit-transform: skewX(45deg);
+        -ms-transform: skewX(45deg);
+        transform: skewX(45deg)
+      }
+    }
+
+    [class*=arrow-swipe-]>div.bottom {
+      -webkit-transform: skewX(-25deg);
+      -ms-transform: skewX(-25deg);
+      transform: skewX(-25deg);
+      bottom: 0;
+      -webkit-transform-origin: right top;
+      -ms-transform-origin: right top;
+      transform-origin: right top
+    }
+
+    @media screen and (min-width:769px) {
+      [class*=arrow-swipe-]>div.bottom {
+        -webkit-transform: skewX(-45deg);
+        -ms-transform: skewX(-45deg);
+        transform: skewX(-45deg)
+      }
+    }
+
+    .arrow-swipe-2:before {
+      right: 100%;
+      content: '';
+      background: #0198ff;
+      display: block
+    }
+
+    .arrow-swipe-2>div {
+      right: auto;
+      left: 0;
+      width: 100%
+    }
+
+    .arrow-swipe-2>div.top {
+      -webkit-transform: skewX(25deg);
+      -ms-transform: skewX(25deg);
+      transform: skewX(25deg)
+    }
+
+    .arrow-swipe-2>div.bottom {
+      -webkit-transform: skewX(-25deg);
+      -ms-transform: skewX(-25deg);
+      transform: skewX(-25deg)
+    }
+
+    .bg-rotate-reveal {
+      overflow: hidden;
+      left: 0
+    }
+
+    .bg-rotate-reveal .rect {
+      top: 0;
+      left: 0;
+      position: absolute;
+      width: 50%;
+      height: 50%;
+      background: #0198ff
+    }
+
+    .bg-rotate-reveal .rect.right {
+      left: 50%
+    }
+
+    .bg-rotate-reveal .rect.bottom {
+      top: 50%
+    }
+
+    .box {
+      width: 200px;
+      height: 200px
+    }
+
+    .box svg {
+      width: 100%;
+      height: 100%;
+      stroke-width: 2px
+    }
+
+    .logo-pattern-box {
+      position: absolute;
+      width: 275px;
+      height: 220px;
+      left: 50%;
+      top: 50%;
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      -ms-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%)
+    }
+
+    .paper-planes {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 3
+    }
+
+    .paper-plane-1 {
+      position: absolute;
+      bottom: 20px;
+      right: 20%
+    }
+
+    .paper-plane-2 {
+      position: absolute;
+      left: 100%;
+      top: 50%
+    }
+
+    .paper-plane-3 {
+      width: 40%;
+      height: 100vh;
+      position: absolute;
+      bottom: 0;
+      right: 100%
+    }
+
+    @media screen and (max-width:768px) {
+      .paper-plane-3 {
+        width: 80%
+      }
+    }
+
+    .paper-plane-3>svg {
+      display: block;
+      width: 100%;
+      height: 100%
+    }
+
+    .banner-text {
+      max-width: 800px;
+      text-align: center;
+      color: #fff
+    }
+
+    .main-banner {
+      position: relative
+    }
+
+    .main-banner .icon-arrow {
+      font-size: 15px;
+      line-height: 1;
+      position: absolute;
+      bottom: 50px;
+      z-index: 2;
+      width: 50px;
+      left: 50%;
+      margin: 0 0 0 -25px;
+      -webkit-animation: ca3_fade_move_down 1s ease-in-out infinite;
+      animation: ca3_fade_move_down 1s ease-in-out infinite;
+      color: #fff
+    }
+
+    /*# sourceMappingURL=animation.min.css.map */
+  </style>
+  <script type="text/javascript" src="./jquery.min.js"></script>
+  <script type="text/javascript" src="./gsap.js"></script>
+  <script type="text/javascript" src="./animation-with-bug.js"></script>
+
+</head>
+
+<body class="home page-template-default page page-id-5 group-blog">
+  <div id="wrapper">
+    <div class="w1">
+      <main id="main">
+        <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+        <header id="header" class="site-header" role="banner">
+          <div class="container">
+            <div class="site-branding">
+              <a href="http://spr.local/" rel="home" class="logo-holder">
+
+                <svg width="56px" height="39px" viewBox="0 0 56 39" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <!-- Generator: sketchtool 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+                  <title>722AF323-FF7C-4E5F-90F7-8808B87B9BA6</title>
+                  <desc>Created with sketchtool.</desc>
+                  <defs></defs>
+                  <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="Logo/White" fill="#FFFFFF">
+                      <path d="M49.1676529,8.01256407 L56,1.40876302 L56,20.3980886 L49.1676529,27.6000284 L49.1676529,8.01256407 Z M36.7160565,0 L55.6311568,0 L48.7981329,6.66311918 L29.2319139,6.66311918 L36.7160565,0 Z M5.65109454,14.9780006 C7.71426776,14.9780006 9.34731005,15.5111801 10.5442991,16.5720687 L8.69585291,19.1036027 C7.95302257,18.3928107 7.18954865,18.0427141 6.40593878,18.0427141 C6.0326623,18.0427141 5.70253428,18.171949 5.4152163,18.4302478 C5.12806753,18.6943588 4.98474696,18.9959069 4.98576222,19.3514739 C4.98643906,19.5613951 5.04041693,19.7554184 5.14194272,19.9277316 C5.24380693,20.1055151 5.41487788,20.2615885 5.65498637,20.3962936 C5.89001856,20.5364691 6.11422135,20.6494641 6.31727292,20.741091 C6.52540079,20.8380172 6.81881031,20.9566534 7.20325463,21.1019572 C7.58211502,21.247432 7.88635397,21.3711966 8.11580225,21.4735931 C9.06066891,21.8937774 9.82448125,22.4269569 10.3915028,23.0840719 C10.9583551,23.741187 11.2434733,24.6730117 11.2466883,25.8793751 C11.251257,27.527462 10.6842355,28.841863 9.54613138,29.8326639 C8.4026126,30.8238068 7.00697144,31.3140789 5.35954632,31.3140789 C3.19501653,31.3140789 1.40663979,30.4629405 0,28.7557064 L1.97603025,26.159384 C3.02969871,27.3498495 4.10282628,27.942347 5.1959206,27.942347 C5.68629015,27.942347 6.10169983,27.791573 6.43148943,27.4898539 C6.76127903,27.1883058 6.91999768,26.7841903 6.918644,26.2887899 C6.91796716,26.0356194 6.87464949,25.8149286 6.7782,25.6156059 C6.686996,25.4162833 6.51592504,25.2330296 6.27023264,25.071486 C6.01929473,24.9044721 5.81099766,24.7754081 5.63485042,24.6945508 C5.45870318,24.6136935 5.16512444,24.4842877 4.75411421,24.3174447 C4.33785848,24.1504308 4.04969446,24.0372648 3.88420742,23.9726474 C2.93392605,23.5579333 2.19160333,23.0572335 1.65690085,22.4753345 C1.11678366,21.8937774 0.847909536,21.0481094 0.845032972,19.9439715 C0.84114115,18.5059767 1.28565489,17.3209816 2.1787434,16.3836866 C3.07200112,15.4463917 4.2329485,14.9780006 5.65109454,14.9780006 Z M27.1167087,17.4285406 C28.4006715,19.0660288 29.0455295,20.9457471 29.0512826,23.0678663 C29.0573742,25.2976812 28.4280835,27.2312474 27.163749,28.8632654 C25.8992453,30.5005827 24.1954734,31.3139421 22.052264,31.3139421 C21.2525792,31.3139421 20.4789527,31.141458 19.7317229,30.8023018 C18.9897386,30.4576754 18.4125645,29.9836431 18.0003698,29.3805469 L17.9364086,29.3805469 L17.9626361,39 L13.6335765,39 L13.5696153,15.4787346 L17.8988441,15.4787346 L17.9025667,16.8845915 C18.9494667,15.6136107 20.3498458,14.9780348 22.1037038,14.9780348 C24.1616315,14.9780348 25.8325767,15.7965225 27.1167087,17.4285406 Z M23.6641551,26.1163399 C24.328303,25.2330638 24.6614768,24.2366216 24.658431,23.1324837 C24.6553852,22.0283459 24.3167967,21.037203 23.647911,20.1648674 C22.973949,19.2921899 22.114364,18.8504664 21.0640797,18.8504664 C20.0085499,18.8504664 19.1513339,19.2921899 18.4819405,20.1648674 C17.8177926,21.037203 17.4846188,22.0283459 17.4876646,23.1324837 C17.4907104,24.2366216 17.8292989,25.2330638 18.4981846,26.1163399 C19.1723159,26.999787 20.0317316,27.4413396 21.0872614,27.4413396 C22.1377149,27.4413396 22.9947618,26.999787 23.6641551,26.1163399 Z M39.2016955,14.9780006 C39.7561955,14.9780006 40.3536748,15.1072355 40.9941333,15.3549357 L40.4826125,19.4160913 C39.9644926,19.0391562 39.3668441,18.8504322 38.6844216,18.8504322 C38.1086012,18.8504322 37.6077406,18.9582989 37.1870854,19.1627499 C36.7664303,19.373013 36.4418862,19.6316538 36.2136223,19.9439715 C35.9904348,20.2562892 35.8103958,20.6549344 35.6784122,21.134266 C35.5462595,21.6135975 35.4623315,22.0607913 35.4313662,22.4753345 C35.4058155,22.8900486 35.3910943,23.3695512 35.3926171,23.9135002 L35.4115686,30.8183365 L31.0823398,30.8183365 L31.0407143,15.4788713 L35.3697738,15.4788713 L35.3741733,17.0731104 L35.432889,17.0731104 C36.3352841,15.678194 37.5914965,14.9780006 39.2016955,14.9780006 Z"
+                        id="SPR-logo"></path>
+                    </g>
+                  </g>
+                </svg>
+
+
+              </a>
+              <!--<p class="site-description"></p>-->
+            </div>
+            <!-- .site-branding -->
+
+            <span class="opener open-menu">
+              <strong>
+                <span>Menu</span>
+              </strong>
+            </span>
+
+            <nav id="site-navigation" class="main-navigation" role="navigation">
+              <div class="navigation-frame">
+                <div class="remove-menu">
+                  <span class="open-menu">
+                    <span class="icon-close">
+                      <span class="hide">close</span>
+                    </span>
+                  </span>
+                </div>
+
+                <div class="menu-holder">
+                  <ul id="primary-menu" class="menu">
+                    <li id="menu-item-517" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-517">
+                      <a href="http://spr.local/work/">Work</a>
+                    </li>
+                    <li id="menu-item-394" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-394">
+                      <a href="http://spr.local/solutions/">Solutions</a>
+                    </li>
+                    <li id="menu-item-339" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-339">
+                      <a href="http://spr.local/about-us/">About Us</a>
+                    </li>
+                    <li id="menu-item-342" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-342">
+                      <a href="http://spr.local/magazine/">The Lumen</a>
+                    </li>
+                    <li id="menu-item-340" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-340">
+                      <a href="http://spr.local/careers/">Careers</a>
+                    </li>
+                    <li id="menu-item-341" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-341">
+                      <a href="http://spr.local/contact-us/">Contact Us</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="logo-menu">
+                  <span class="icon-decoration1">
+                    <span class="hide">arrow</span>
+                  </span>
+                </div>
+              </div>
+            </nav>
+            <!-- #site-navigation -->
+          </div>
+        </header>
+        <!-- #masthead -->
+        <div id="content" class="site-content">
+
+          <section class="main-banner hero-text">
+            <div class="animation-canvas only-desktop">
+
+              <!-- Rotation reveal -->
+              <div class="bg-rotate-reveal">
+                <div class="rect left top"></div>
+                <div class="rect left bottom"></div>
+                <div class="rect right bottom"></div>
+                <div class="rect right top"></div>
+              </div>
+              <!--Arrow swipes-->
+              <div class="arrow-swipe-1">
+                <div class="top"></div>
+                <div class="bottom"></div>
+              </div>
+              <div class="arrow-swipe-2">
+                <div class="top"></div>
+                <div class="bottom"></div>
+              </div>
+              <!--Paper planes-->
+              <div class="paper-planes">
+                <div class="paper-plane-1" style="opacity: 0">
+                  <svg width="100px" height="52px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100.7 52">
+                    <g style="opacity: 0.8">
+                      <path fill='#FFFFFF' d="M20 14.4l23.8 15.5 5 14 36.7-25.2z" />
+                      <path fill='#D5D4D3' d="M49.8 43.4l13.7-1.7L81 21.9z" />
+                    </g>
+                  </svg>
+                </div>
+                <div class="paper-plane-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="120px" height="50px" viewBox="0 0 110.7 58.7">
+                    <g id="plane-finish-1" class="plane-finish" style="display:none">
+                      <path id="left-wing-1" class="st1" d="M52 31.1l-24.2 7.2 25.4-10.1z" />
+                      <path id="left-fold-1" class="st2" d="M58.2 37.7l-10.9-5.2 5.9-4.3z" />
+                      <path id="right-fold-1" class="st3" d="M64.8 27.8l-6.6 9.8-5-9.4z" />
+                      <path id="right-wing-1" class="st1" d="M58.8 30.7L84 19.3l-30.8 8.9z" />
+                    </g>
+                    <g id="plane-finish-2" class="plane-finish" style="display:none">
+                      <path id="left-wing-f-2" class="st1" d="M53 28.2l.1 1.1.8 7.8-.2-.1L31 48l21.7-19.5.3-.3z" />
+                      <path id="left-fold-f-2" class="st2" d="M57.7 39.1l-3.8-2-.8-7.8-.1-1.1 4.7 10.7z" />
+                      <path id="right-fold-f-2" class="st3" d="M59.4 35.2l-1.7 3.9v-.2L53 28.2z" />
+                      <path id="right-wing-f-2" class="st1" d="M82.4 30.9l-23 4.3-6.4-7h.1z" />
+                    </g>
+                    <g id="plane-finish-3" class="plane-finish" style="display:none">
+                      <path id="left-wing-f-3" class="st1" d="M59.6 33.2L27.2 46.4l25.3-18.2z" />
+                      <path id="left-fold-f-3" class="st2" d="M59.1 33.2l-6.6-5L73.7 39z" />
+                      <path id="right-fold-f-3" class="st3" d="M78.4 26.7l-4.6 12.5-21.3-11z" />
+                      <path id="right-wing-f-3" class="st1" d="M99.4 17.4l-21 9.6-25.9 1.2h.1z" />
+                    </g>
+                    <g id="plane-start">
+                      <path id="left-wing" fill="#fff" d="M68.9 24.1l-.3 5.6-28.4-2z" />
+                      <path id="left-fold" fill="#F1F2F2" d="M68.8 24.1l-.6 6.8L40 27.7z" />
+                      <path id="right-fold" fill="#D1D3D4" d="M68.8 24.1l-.6 6.8L40 27.7z" />
+                      <path id="right-wing" fill="#FFFFFF" d="M68.9 24.1l-1.3 7.3-27.7-3.7z" />
+                    </g>
+                  </svg>
+                </div>
+                <div class="paper-plane-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 684 590">
+                    <path class="shade" fill='#D5D4D3' d="M211 295l-26.7 43.3 45.4-23z" />
+                    <g fill="#fff">
+                      <path id="plane-body" d="M7.7 49.7l110 134 66.6 154.6L211 295l241.3 283.3L677 57.7z" />
+                      <path id="plane-body-rotation" fill="#fff" d="M10 52l206 104 61 128 61-42 322 167L585 9z" style="display:none" />
+                    </g>
+                    <path class="shade-rotation" fill='#D5D4D3' style="opacity:0" d="M277 284L585 9 338 242z" />
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Banner contents -->
+              <div class="content-slides">
+
+                <div class="slide-1">
+                  <div class="box">
+                    <svg viewBox="0 0 524.7 466.7">
+                      <path style="opacity:0" fill=#FFFFFF stroke=#fff class="box-voggle" d="M405.8 376.8c-93.3-88.8-188.8-95.2-287 0 74.4-86.9 67.9-183.4 0-287 100.1 102.4 195.6 99.4 287 0-71.7 102.7-77.6 199 0 287z"
+                      />
+                      <path style="opacity:0" class="arrow-down" fill="#0198ff" d="M465.3,233.3C418,342.3,315,244,266.3,244C219,244,105,344.7,59.4,233.3h202.9H465.3z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="slide-2" style="opacity: 0">
+                  <div class="logo-box">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="80px" height="56px" viewBox="0 0 40 28">
+                      <path fill="#0198ff" fill-rule="evenodd" d="M35.12 5.753L40 1.01v13.634l-4.88 5.17V5.753zM26.226 0h13.51l-4.88 4.784H20.88L26.226 0zM4.036 10.753c1.474 0 2.64.383 3.496 1.145l-1.32 1.817c-.531-.51-1.077-.761-1.636-.761-.267 0-.503.093-.708.278-.205.19-.307.406-.307.661 0 .151.04.29.112.414.073.128.195.24.366.336.168.101.328.182.473.248.149.07.359.155.633.26.27.104.488.192.652.266.675.302 1.22.684 1.626 1.156.404.472.608 1.141.61 2.007.004 1.183-.401 2.127-1.214 2.838-.817.712-1.814 1.064-2.99 1.064-1.547 0-2.824-.611-3.829-1.837l1.411-1.864c.753.855 1.52 1.28 2.3 1.28.35 0 .647-.108.883-.325.235-.216.349-.506.348-.862 0-.182-.032-.34-.1-.483A.967.967 0 0 0 4.479 18a3.573 3.573 0 0 0-.454-.27 15.646 15.646 0 0 0-.63-.271c-.297-.12-.502-.201-.62-.248-.68-.298-1.21-.657-1.591-1.075-.386-.417-.578-1.025-.58-1.817-.003-1.033.314-1.883.952-2.556.638-.673 1.468-1.01 2.48-1.01zm15.333 1.76c.917 1.175 1.378 2.525 1.382 4.049.004 1.6-.445 2.989-1.348 4.16-.904 1.176-2.12 1.76-3.651 1.76a3.954 3.954 0 0 1-1.658-.368c-.53-.247-.942-.587-1.237-1.02h-.045L12.83 28H9.738l-.045-16.887h3.092l.003 1.01c.747-.913 1.748-1.37 3-1.37 1.47 0 2.664.588 3.581 1.76zm-2.466 6.237c.474-.634.712-1.35.71-2.142a3.442 3.442 0 0 0-.722-2.13c-.481-.627-1.095-.944-1.845-.944-.754 0-1.366.317-1.845.943a3.426 3.426 0 0 0-.71 2.13c.002.794.244 1.509.722 2.143.482.634 1.095.951 1.85.951.75 0 1.362-.317 1.84-.95zm11.098-7.997c.396 0 .823.093 1.28.271l-.365 2.916a2.116 2.116 0 0 0-1.284-.406c-.412 0-.77.077-1.07.224-.3.15-.532.337-.695.56-.16.225-.288.511-.382.855a5.095 5.095 0 0 0-.177.963c-.018.298-.029.642-.028 1.033l.014 4.957h-3.092l-.03-11.013h3.092l.003 1.145h.042c.645-1.002 1.542-1.505 2.692-1.505z"
+                      />
+                    </svg>
+                  </div>
+
+                  <div class="logo-pattern-box">
+                    <svg class="logo-pattern" width="100%" height="100%" viewBox="0 0 275 220.7">
+                      <g fill="none" stroke="#0198ff" stroke-miterlimit=10>
+                        <path d="M29 157.5c3.6-4.8 7.2-9.6 9.8-13l1.5 13.8-11.3-.8z" />
+                        <path d="M239.5 16.7c-3.3 3.9-6.5 7.7-8.9 10.5l-.6-11.7 9.5 1.2z" />
+                        <path d="M251.8 203.3c-4.5-2.5-9-4.9-12.1-6.6l11.4-3 .7 9.6z" />
+                        <path d="M190.8 190.5v-7l4.2 3.1-4.2 3.9z" />
+                        <path d="M59.4 91.4c-1.1 1.5-4.4 3.3-4.4 3.3l-1.4-3.4 5.8.1z" />
+                        <path d="M214.5 73.3c.5-.8 2-1.8 2-1.8l.9 2-2.9-.2z" />
+                        <path d="M194.7 78c.2-.2.9-.6.9-.6l.2.5-1.1.1z" />
+                        <path d="M79.6 86.8z" />
+                        <path d="M179.2 159c-.1-.6.3-1.9.3-1.9l.9.2-1.2 1.7z" />
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+                <div class="slide-3" style="opacity: 0">
+                  <div class="holder">
+                    <h1>We are a digital technology consultancy that's transforming the human experience.</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="icon-arrow">
+              <span class="icon-arrow-down">
+                <span class="hide">arrow down</span>
+              </span>
+            </div>
+          </section>
+        </div>
+        <!-- #content -->
+      </main>
+      <!-- #main -->
+    </div>
+    <!-- .w1 -->
+  </div>
+  <!-- #wrapper -->
+
+
+  <script type='text/javascript'>
+    /* <![CDATA[ */
+    var wpcf7 = { "apiSettings": { "root": "http:\/\/spr.local\/wp-json\/contact-form-7\/v1", "namespace": "contact-form-7\/v1" }, "recaptcha": { "messages": { "empty": "Please verify that you are not a robot." } } };
+/* ]]> */
+  </script>
+  <script type='text/javascript' src='http://spr.local/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=4.9'></script>
+  <script type='text/javascript' src='http://spr.local/wp-content/themes/spr/build/js/vendor.min.js?ver=1511713531'></script>
+  <script type='text/javascript' src='http://spr.local/wp-content/themes/spr/build/js/app.min.js?ver=1513690584'></script>
+  <script type='text/javascript' src='http://spr.local/wp-includes/js/wp-embed.min.js?ver=4.8.2'></script>
+
+  <script>
+    function aload(t) { "use strict"; var e = "data-aload"; return t = t || window.document.querySelectorAll("[" + e + "]"), void 0 === t.length && (t = [t]), [].forEach.call(t, function (t) { t["LINK" !== t.tagName ? "src" : "href"] = t.getAttribute(e), t.removeAttribute(e) }), t }
+    window.onload = function () { aload(); };
+  </script>
+
+
+</body>
+
+</html>
